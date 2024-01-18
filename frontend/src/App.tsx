@@ -1,19 +1,25 @@
-function SplashScreen() {
-  return (
-    <div className='bg-[#51AB52] h-screen text-white flex justify-center items-center'>
-      <p className="tracking-widest text-2xl">LOGO</p>
-    </div>
-  )
-}
+import React, { useState, useEffect } from 'react';
+import SplashScreen from './components/SplashScreen';
+import Home from './components/Home';
 
 
 function App() {
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
+
+  useEffect(() => {
+    // Após 500 milissegundos, altera o estado para ocultar a primeira SplashScreen
+    const timeoutId = setTimeout(() => {
+      setShowSplashScreen(false);
+    }, 1000);
+
+    // Limpa o timeout ao desmontar o componente para evitar vazamentos de memória
+    return () => clearTimeout(timeoutId);
+  }, [])
 
   return (
-    <>
-      <SplashScreen />
-    </>
-  )
+    // Renderiza a SplashScreen ou SplashScreen2 baseado no estado
+    showSplashScreen ? <SplashScreen /> : <Home />
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/frontend/(.*)",
+        "dest": "/frontend/$1",
+        "status": 200
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/server/$1",
+        "status": 200
+      }
+    ]
+  }
+  

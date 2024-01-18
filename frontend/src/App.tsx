@@ -4,7 +4,7 @@ import SplashScreen from './components/SplashScreen';
 import Home from './components/Home';
 
 
-function App() {
+function App(): JSX.Element {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
 
   useEffect(() => {
